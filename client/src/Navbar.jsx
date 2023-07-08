@@ -44,12 +44,15 @@
 import React from 'react';
 import dvideo from './assets/react.svg';
 import "./Navbar.css";
-const Navbar = ({account}) => {
+const Navbar = ({account,loadWeb3,connected}) => {
   return(
     <>
       <div className="navbar">
         <img src={dvideo} className="img" width="30px" height="30px" />
         <p>DYouTube</p>
+        {/* <button type="" className="connectBTN" onClick={() => loadWeb3()} disabled={!connected}> {connected ? "Connect Metamask" : "Connected"}</button> */}
+        <button type="" className="connectBTN" onClick={() => loadWeb3()} disabled={!connected}> {connected ? "Connect Metamask" : account.length === 42 ? `${account.slice(0, 6)}...${account.slice(-3)}` : account}</button>
+        {/* <p id="account"> Account : {account ? account : "not connected"}</p> */}
         {/* {account && (
           <p className="account">Account : {account ? account:"not conneccted"} </p>
         )} */}

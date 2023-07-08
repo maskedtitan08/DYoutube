@@ -154,10 +154,9 @@ const uploadVideo = async (title) => {
   return (
     <>
       <div>
-        <button type="" className="connectBTN" onClick={() => loadWeb3()} disabled={!connected}> {connected ? "Connect Metamask" : "Connected"}</button>
+        {/* <button type="" className="connectBTN" onClick={() => loadWeb3()} disabled={!connected}> {connected ? "Connect Metamask" : "Connected"}</button> */}
         {/* <button type="" className="connectBTN" onClick={() => loadBlockchainData()} disabled={!connected}> {connected ? "Load Data" : "Laoded"}</button> */}
-        <p id="account"> Account : {account ? account : "not connected"}</p>
-        <Navbar account={account} />
+        <Navbar account={account} loadWeb3={loadWeb3} connected={connected}/>
         {loading
           ? <div id="loader"><p>Loading...</p></div>
           : <Main
